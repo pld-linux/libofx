@@ -1,14 +1,17 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl):	Biblioteka LibOFX pozwalaj±ca aplikacjom obs³ugiwaæ odpowiedzi na polecenia OFX
 Name:		libofx
-Version:	0.6.5
+Version:	0.6.6
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-# Source0-md5:	685749c235518af6e7ee3c01122a306d
+# Source0-md5:	bf086f12ead5b19b7dc20badd396d87b
 URL:		http://libofx.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	opensp-devel
+BuildRequires:	libtool >= 2:1.4d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,10 +37,10 @@ sposób przezroczysty z poziomu C i C++ przy u¿yciu tego samego pliku
 nag³ówkowego.
 
 %package devel
-Summary:        Header files for LibOFX library
+Summary:	Header files for LibOFX library
 Summary(pl):	Pliki nag³ówkowe biblioteki LibOFX
-Group:          Development/Libraries
-Requires:       %{name} = %{version}
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 Requires:	opensp-devel
 
 %description devel
@@ -47,10 +50,10 @@ Header files for developing programs using LibOFX.
 Pliki nag³ówkowe do tworzenia programów z u¿yciem LibOFX.
 
 %package static
-Summary:        Static version LibOFX library
-Summary(pl):    Biblioteka statyczna LibOFX
-Group:          Development/Libraries
-Requires:       %{name}-devel = %{version}
+Summary:	Static version LibOFX library
+Summary(pl):	Biblioteka statyczna LibOFX
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static LibOFX library.
@@ -62,6 +65,11 @@ Statyczna biblioteka LibOFX.
 %setup -q
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 
 %{__make}
