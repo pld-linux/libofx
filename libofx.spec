@@ -1,13 +1,14 @@
-
-Summary:	The LibOFX library is designed to allow applications to support OFX command responses
+Summary:	LibOFX library that allows applications to support OFX command responses
+Summary(pl):	Biblioteka LibOFX pozwalaj±ca aplikacjom obs³ugiwaæ odpowiedzi na polecenia OFX
 Name:		libofx
 Version:	0.6.5
-Release:	0.1
-Source0:	http://download.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-BuildRequires:	opensp-devel
-Group:		Libraries
+Release:	1
 License:	GPL
-URL:		http://libofx.sourceforge.net
+Group:		Libraries
+Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
+# Source0-md5:	685749c235518af6e7ee3c01122a306d
+URL:		http://libofx.sourceforge.net/
+BuildRequires:	opensp-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -15,55 +16,61 @@ This is the LibOFX library. It is a API designed to allow applications
 to very easily support OFX command responses, usually provided by
 financial institutions. See http://www.ofx.net/ofx/default.asp for
 details and specification. LibOFX is based on the excellent OpenSP
-library written by James Clark, and now part of the OpenJADE
-http://openjade.sourceforge.net/ project. OpenSP by itself is not
-widely distributed. OpenJADE 1.3.1 includes a version on OpenSP that
-will link, however, it has some major problems with LibOFX and isn't
-recommended. Since LibOFX uses the generic interface to OpenSP, it
-should be compatible with all recent versions of OpenSP (It has been
-developed with OpenSP-1.5pre5). LibOFX is written in C++, but provides
-a C style interface usable transparently from both C and C++ using a
-single include file.
+library written by James Clark, and now part of the OpenJADE project
+(http://openjade.sourceforge.net/). LibOFX is written in C++, but
+provides a C style interface usable transparently from both C and C++
+using a single include file.
 
+%description -l pl
+Ten pakiet zawiera bibliotekê LibOFX. Jest to API zaprojektowane aby
+umo¿liwiæ aplikacjom w prosty sposób obs³ugiwaæ odpowiedzi na
+polecenia OFX, zwykle udostêpniane przez instytucje finansowe.
+Szczegó³y oraz specyfikacjê mo¿na znale¼æ na stronie
+http://www.ofx.net/ofx/default.asp. LibOFX jest oparta na ¶wietnej
+bibliotece OpenSP napisanej przez Jamesa Clarka, bêd±cej teraz czê¶ci±
+projektu OpenJADE (http://openjade.sourceforge.net/). LibOFX jest
+napisana w C++, ale udostêpnia interfejs w C, którego mo¿na u¿ywaæ w
+sposób przezroczysty z poziomu C i C++ przy u¿yciu tego samego pliku
+nag³ówkowego.
 
 %package devel
-Summary:        Header files for libofx
-Group:          Development/Tools
+Summary:        Header files for LibOFX library
+Summary(pl):	Pliki nag³ówkowe biblioteki LibOFX
+Group:          Development/Libraries
 Requires:       %{name} = %{version}
+Requires:	opensp-devel
 
 %description devel
-Header files for developing programs using libofx
+Header files for developing programs using LibOFX.
+
+%description devel -l pl
+Pliki nag³ówkowe do tworzenia programów z u¿yciem LibOFX.
 
 %package static
-Summary:        Static version libofx library
-Summary(pl):    Biblioteka statyczna libofx
+Summary:        Static version LibOFX library
+Summary(pl):    Biblioteka statyczna LibOFX
 Group:          Development/Libraries
 Requires:       %{name}-devel = %{version}
 
 %description static
-Static libofx library.
+Static LibOFX library.
 
+%description static -l pl
+Statyczna biblioteka LibOFX.
 
 %prep
 %setup -q
 
 %build
-
 %configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
-#LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir} make prefix=$RPM_BUILD_ROOT%{_prefix} \#
-#    libdir=$RPM_BUILD_ROOT%{_libdir} \
-#    datadir=$RPM_BUILD_ROOT%{_datadir} \
-#    includedir=$RPM_BUILD_ROOT%{_includedir} install
-
-%makeinstall
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,15 +82,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/*.so.*.*
-%{_datadir}/libofx/dtd/*
+%attr(755,root,root) %{_libdir}/*.so.*.*
+%{_datadir}/libofx
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
+%attr(755,root,root) %{_libdir}/*.so
 %{_libdir}/*.la
-%{_libdir}/*.so
-%{_includedir}/*
+%{_includedir}/libofx
 
 %files static
 %defattr(644,root,root,755)
