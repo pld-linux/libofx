@@ -1,12 +1,12 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl):	Biblioteka LibOFX pozwalaj±ca aplikacjom obs³ugiwaæ odpowiedzi na polecenia OFX
 Name:		libofx
-Version:	0.6.6
+Version:	0.7.0
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-# Source0-md5:	bf086f12ead5b19b7dc20badd396d87b
+# Source0-md5:	15ab18063c552ad5d69d4481efbbd6e6
 URL:		http://libofx.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
