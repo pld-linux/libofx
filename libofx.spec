@@ -10,8 +10,9 @@ Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
 URL:		http://libofx.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	opensp-devel
+BuildRequires:	curl-devel >= 7.9.7
 BuildRequires:	libtool >= 2:1.4d
+BuildRequires:	opensp-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
