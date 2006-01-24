@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
 # Source0-md5:	8001c22445c1bdd6bebf1df3663db203
 URL:		http://libofx.sourceforge.net/
+Patch0:		%{name}-cc_fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
@@ -64,6 +65,7 @@ Statyczna biblioteka LibOFX.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
