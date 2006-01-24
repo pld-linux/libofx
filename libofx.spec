@@ -7,13 +7,15 @@ License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
 # Source0-md5:	8001c22445c1bdd6bebf1df3663db203
+Patch0:		%{name}-system-wide-treehh.patch
+Patch1:		%{name}-am.patch
 URL:		http://libofx.sourceforge.net/
-Patch0:		%{name}-cc_fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
 BuildRequires:	libtool >= 2:1.4d
 BuildRequires:	opensp-devel
+BuildRequires:	tree.hh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,6 +68,8 @@ Statyczna biblioteka LibOFX.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+rm -f lib/tree.hh
 
 %build
 %{__libtoolize}
