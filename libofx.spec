@@ -1,5 +1,5 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
-Summary(pl):	Biblioteka LibOFX pozwalaj±ca aplikacjom obs³ugiwaæ odpowiedzi na polecenia OFX
+Summary(pl.UTF-8):   Biblioteka LibOFX pozwalajÄ…ca aplikacjom obsÅ‚ugiwaÄ‡ odpowiedzi na polecenia OFX
 Name:		libofx
 Version:	0.8.2
 Release:	1
@@ -27,21 +27,21 @@ library written by James Clark, and now part of the OpenJADE project
 provides a C style interface usable transparently from both C and C++
 using a single include file.
 
-%description -l pl
-Ten pakiet zawiera bibliotekê LibOFX. Jest to API zaprojektowane aby
-umo¿liwiæ aplikacjom w prosty sposób obs³ugiwaæ odpowiedzi na
-polecenia OFX, zwykle udostêpniane przez instytucje finansowe.
-Szczegó³y oraz specyfikacjê mo¿na znale¼æ na stronie
-http://www.ofx.net/ofx/default.asp. LibOFX jest oparta na ¶wietnej
-bibliotece OpenSP napisanej przez Jamesa Clarka, bêd±cej teraz czê¶ci±
+%description -l pl.UTF-8
+Ten pakiet zawiera bibliotekÄ™ LibOFX. Jest to API zaprojektowane aby
+umoÅ¼liwiÄ‡ aplikacjom w prosty sposÃ³b obsÅ‚ugiwaÄ‡ odpowiedzi na
+polecenia OFX, zwykle udostÄ™pniane przez instytucje finansowe.
+SzczegÃ³Å‚y oraz specyfikacjÄ™ moÅ¼na znaleÅºÄ‡ na stronie
+http://www.ofx.net/ofx/default.asp. LibOFX jest oparta na Å›wietnej
+bibliotece OpenSP napisanej przez Jamesa Clarka, bÄ™dÄ…cej teraz czÄ™Å›ciÄ…
 projektu OpenJADE (http://openjade.sourceforge.net/). LibOFX jest
-napisana w C++, ale udostêpnia interfejs w C, którego mo¿na u¿ywaæ w
-sposób przezroczysty z poziomu C i C++ przy u¿yciu tego samego pliku
-nag³ówkowego.
+napisana w C++, ale udostÄ™pnia interfejs w C, ktÃ³rego moÅ¼na uÅ¼ywaÄ‡ w
+sposÃ³b przezroczysty z poziomu C i C++ przy uÅ¼yciu tego samego pliku
+nagÅ‚Ã³wkowego.
 
 %package devel
 Summary:	Header files for LibOFX library
-Summary(pl):	Pliki nag³ówkowe biblioteki LibOFX
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki LibOFX
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	opensp-devel
@@ -49,19 +49,19 @@ Requires:	opensp-devel
 %description devel
 Header files for developing programs using LibOFX.
 
-%description devel -l pl
-Pliki nag³ówkowe do tworzenia programów z u¿yciem LibOFX.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe do tworzenia programÃ³w z uÅ¼yciem LibOFX.
 
 %package static
 Summary:	Static version LibOFX library
-Summary(pl):	Biblioteka statyczna LibOFX
+Summary(pl.UTF-8):   Biblioteka statyczna LibOFX
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static LibOFX library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka LibOFX.
 
 %prep
