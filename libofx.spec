@@ -1,5 +1,5 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
-Summary(pl.UTF-8):   Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
+Summary(pl.UTF-8):	Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
 Name:		libofx
 Version:	0.8.2
 Release:	1
@@ -41,7 +41,7 @@ nagłówkowego.
 
 %package devel
 Summary:	Header files for LibOFX library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki LibOFX
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki LibOFX
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	opensp-devel
@@ -54,7 +54,7 @@ Pliki nagłówkowe do tworzenia programów z użyciem LibOFX.
 
 %package static
 Summary:	Static version LibOFX library
-Summary(pl.UTF-8):   Biblioteka statyczna LibOFX
+Summary(pl.UTF-8):	Biblioteka statyczna LibOFX
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
