@@ -1,12 +1,12 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl.UTF-8):	Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
 Name:		libofx
-Version:	0.8.2
+Version:	0.8.3
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-# Source0-md5:	b860894c1e3da7f58ce5d92e064d0e85
+# Source0-md5:	26ef343ebf93dc6351c889a402e10d89
 Patch0:		%{name}-system-wide-treehh.patch
 URL:		http://libofx.sourceforge.net/
 BuildRequires:	autoconf
