@@ -86,6 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -rf $RPM_BUILD_ROOT%{_docdir}/libofx
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -95,17 +97,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*.so.*.*
+%attr(755,root,root) %{_bindir}/ofx2qif
+%attr(755,root,root) %{_bindir}/ofxdump
+%attr(755,root,root) %{_libdir}/libofx.so.*.*.*
 %{_datadir}/libofx
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/libofx.so
+%{_libdir}/libofx.la
 %{_includedir}/libofx
+%{_pkgconfigdir}/libofx.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libofx.a
