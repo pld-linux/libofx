@@ -100,6 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ofx2qif
 %attr(755,root,root) %{_bindir}/ofxdump
 %attr(755,root,root) %{_libdir}/libofx.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libofx.so.4
 %{_datadir}/libofx
 
 %files devel
