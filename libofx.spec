@@ -1,12 +1,12 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl.UTF-8):	Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
 Name:		libofx
-Version:	0.9.2
+Version:	0.9.4
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-# Source0-md5:	cb72fce95e0d59bef78ba0601fbc91f3
+# Source0-md5:	f2419bf8d01c0cff74efe7084e0a26c5
 Patch0:		%{name}-system-wide-treehh.patch
 URL:		http://libofx.sourceforge.net/
 BuildRequires:	autoconf
@@ -14,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
 BuildRequires:	libtool >= 2:1.4d
 BuildRequires:	opensp-devel
+BuildRequires:	libxml++-devel >= 2.6
 BuildRequires:	tree.hh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -86,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/libofx
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libofx
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,10 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/ofx2qif
+%attr(755,root,root) %{_bindir}/ofxconnect
 %attr(755,root,root) %{_bindir}/ofxdump
 %attr(755,root,root) %{_libdir}/libofx.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libofx.so.4
 %{_datadir}/libofx
+%{_mandir}/man1/ofxconnect.1*
+%{_mandir}/man1/ofxdump.1*
 
 %files devel
 %defattr(644,root,root,755)
