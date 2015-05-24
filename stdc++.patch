@@ -1,0 +1,10 @@
+--- libofx-0.9.4/ofxconnect/ofxpartner.cpp~	2011-03-31 00:30:50.000000000 +0200
++++ libofx-0.9.4/ofxconnect/ofxpartner.cpp	2015-05-24 21:34:39.050758092 +0200
+@@ -30,6 +30,7 @@
+ #include "ofxpartner.h"
+ #include "nodeparser.h"
+ 
++#include <unistd.h>
+ #include <sys/stat.h>
+ 
+ #include <iostream>
