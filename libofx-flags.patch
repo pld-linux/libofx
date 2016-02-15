@@ -1,0 +1,11 @@
+--- libofx-0.9.10/configure.in.orig	2014-09-12 21:44:44.000000000 +0200
++++ libofx-0.9.10/configure.in	2016-02-15 17:43:50.885542399 +0100
+@@ -64,7 +64,7 @@
+ 			  [Define if GCC visibility extensions are supported])
+ 	VISIBILITY_FLAGS="-fvisibility=hidden"
+ 	CFLAGS="$VISIBILITY_FLAGS $CFLAGS"
+-	CXXFLAGS="$VISIBILITY_FLAGS -fvisibility-inlines-hidden $CFLAGS"
++	CXXFLAGS="$VISIBILITY_FLAGS -fvisibility-inlines-hidden $CXXFLAGS"
+ fi
+ 
+ ## Pass -DIN_LIBOFX to the compiler so we can detect it and include config.h
