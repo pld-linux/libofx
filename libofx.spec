@@ -14,9 +14,10 @@ URL:		http://libofx.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
+BuildRequires:	help2man
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	opensp-devel
 BuildRequires:	libxml++2-devel >= 2.6
+BuildRequires:	opensp-devel
 BuildRequires:	tree.hh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -85,7 +86,7 @@ CXXFLAGS="%{rpmcxxflags} -std=c++0x"
 %configure \
 	--with-opensp-libs=%{_libdir}
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
