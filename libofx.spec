@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	apidocs	# Doxygen API documentation
+
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl.UTF-8):	Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
 Name:		libofx
@@ -16,12 +20,14 @@ URL:		https://github.com/libofx/libofx
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
+%{?with_apidocs:BuildRequires:	doxygen}
 BuildRequires:	help2man
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libxml++2-devel >= 2.6
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	tree.hh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,6 +78,18 @@ Static LibOFX library.
 %description static -l pl.UTF-8
 Statyczna biblioteka LibOFX.
 
+%package apidocs
+Summary:	API documentation for LibOFX library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki LibOFX
+Group:		Documentation
+BuildArch:	noarch
+
+%description apidocs
+API documentation for LibOFX library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki LibOFX.
+
 %prep
 %setup -q
 %patch -P0 -p1
@@ -92,6 +110,10 @@ CXXFLAGS="%{rpmcxxflags} -std=c++11"
 	--with-opensp-libs=%{_libdir}
 
 %{__make} -j1
+
+%if %{with apidocs}
+%{__make} doc
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -124,7 +146,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/html
 %{_libdir}/libofx.so
 %{_includedir}/libofx
 %{_pkgconfigdir}/libofx.pc
@@ -132,3 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libofx.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*.{css,html,js,png}
+%endif
