@@ -1,16 +1,15 @@
 Summary:	LibOFX library that allows applications to support OFX command responses
 Summary(pl.UTF-8):	Biblioteka LibOFX pozwalająca aplikacjom obsługiwać odpowiedzi na polecenia OFX
 Name:		libofx
-Version:	0.9.10
+Version:	0.10.9
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/libofx/%{name}-%{version}.tar.gz
-# Source0-md5:	adfa83a08d76b047f89a82d5b484f79b
+Source0:	https://github.com/libofx/libofx/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	d53518ec2b5e12573add5477eaeb81c1
 Patch0:		%{name}-system-wide-treehh.patch
-Patch1:		stdc++.patch
-Patch2:		%{name}-flags.patch
-URL:		http://libofx.sourceforge.net/
+Patch1:		%{name}-flags.patch
+URL:		https://github.com/libofx/libofx
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
@@ -72,17 +71,18 @@ Statyczna biblioteka LibOFX.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p1
-%patch -P2 -p1
 %{__rm} lib/tree.hh
 
 %build
+install -d config
+touch INSTALL
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 # C++ 11 is required by tree.hh 3+ and libxml++ 2.40+
-CXXFLAGS="%{rpmcxxflags} -std=c++0x"
+CXXFLAGS="%{rpmcxxflags} -std=c++11"
 %configure \
 	--with-opensp-libs=%{_libdir}
 
@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ofxconnect
 %attr(755,root,root) %{_bindir}/ofxdump
 %attr(755,root,root) %{_libdir}/libofx.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libofx.so.6
+%attr(755,root,root) %ghost %{_libdir}/libofx.so.7
 %{_datadir}/libofx
 %{_mandir}/man1/ofxconnect.1*
 %{_mandir}/man1/ofxdump.1*
