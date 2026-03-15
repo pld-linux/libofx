@@ -5,6 +5,9 @@ Version:	0.10.9
 Release:	1
 License:	GPL v2+
 Group:		Libraries
+#Source0Download: https://github.com/libofx/libofx/releases
+# TODO: use release tarballs
+#Source0:	https://github.com/libofx/libofx/releases/download/%{version}/%{name}-%{version}.tar.gz
 Source0:	https://github.com/libofx/libofx/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	d53518ec2b5e12573add5477eaeb81c1
 Patch0:		%{name}-system-wide-treehh.patch
@@ -14,9 +17,11 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.7
 BuildRequires:	help2man
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libxml++2-devel >= 2.6
 BuildRequires:	opensp-devel
+BuildRequires:	pkgconfig
 BuildRequires:	tree.hh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
