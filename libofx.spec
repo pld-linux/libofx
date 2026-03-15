@@ -116,8 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ofx2qif
 %attr(755,root,root) %{_bindir}/ofxconnect
 %attr(755,root,root) %{_bindir}/ofxdump
-%attr(755,root,root) %{_libdir}/libofx.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libofx.so.7
+%{_libdir}/libofx.so.*.*.*
+%ghost %{_libdir}/libofx.so.7
 %{_datadir}/libofx
 %{_mandir}/man1/ofxconnect.1*
 %{_mandir}/man1/ofxdump.1*
@@ -125,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
-%attr(755,root,root) %{_libdir}/libofx.so
+%{_libdir}/libofx.so
 %{_includedir}/libofx
 %{_pkgconfigdir}/libofx.pc
 
